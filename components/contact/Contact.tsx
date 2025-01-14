@@ -1,9 +1,7 @@
 import { FC } from "react";
 import { useContactForm } from "@/components/contact/useContactForm";
 
-interface ContactProps {}
-
-const Contact: FC<ContactProps> = ({}) => {
+const Contact: FC = () => {
   const {
     formData,
     isLoading,
@@ -14,11 +12,11 @@ const Contact: FC<ContactProps> = ({}) => {
   } = useContactForm();
 
   return (
-    <div id="contacts"  className="container text-white">
+    <div id="contacts" className="container text-white">
       <div className="bg-green-900 px-10 pt-5 pb-10 space-y-5 rounded-md">
         {submitted ? (
           <p className="text-white text-lg">
-            <span className="text-yellow-500"> Дякуємо!</span> Ваше повідомлення надіслано.
+            <span className="text-yellow-500">Дякуємо!</span> Ваше повідомлення надіслано.
           </p>
         ) : error ? (
           <p className="text-red-600 text-lg">
@@ -26,7 +24,7 @@ const Contact: FC<ContactProps> = ({}) => {
           </p>
         ) : (
           <h3>
-            <span className="text-yellow-500">Write</span> to us — we`&apos;`ll reply{" "}
+            <span className="text-yellow-500">Write</span> to us — we&apos;ll reply{" "}
             <span className="text-yellow-500">quickly!</span>
           </h3>
         )}
@@ -42,7 +40,6 @@ const Contact: FC<ContactProps> = ({}) => {
             required
             disabled={isLoading}
           />
-
           <input
             type="email"
             id="email"
@@ -54,7 +51,6 @@ const Contact: FC<ContactProps> = ({}) => {
             required
             disabled={isLoading}
           />
-
           <textarea
             id="message"
             name="message"
@@ -66,7 +62,6 @@ const Contact: FC<ContactProps> = ({}) => {
             required
             disabled={isLoading}
           />
-
           <button
             type="submit"
             disabled={isLoading}
