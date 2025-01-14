@@ -1,10 +1,9 @@
 import { FC } from "react";
-import styles from "@/styles/default/contact.module.scss";
 import { useContactForm } from "@/components/contact/useContactForm";
 
 interface ContactProps {}
 
-const Contact: FC<ContactProps> = () => {
+const Contact: FC<ContactProps> = ({}) => {
   const {
     formData,
     isLoading,
@@ -27,7 +26,7 @@ const Contact: FC<ContactProps> = () => {
           </p>
         ) : (
           <h3>
-            <span className="text-yellow-500">Write</span> to us — we'll reply{" "}
+            <span className="text-yellow-500">Write</span> to us — we`&apos;`ll reply{" "}
             <span className="text-yellow-500">quickly!</span>
           </h3>
         )}

@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import { NavigationLink } from "@/types/navigationLinks";
 import Navigation from "../common/NavigationLinks"; 
 

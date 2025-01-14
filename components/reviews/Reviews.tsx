@@ -2,6 +2,7 @@ import { FC } from "react";
 import { ReviewSection } from "@/types/reviewDataType"; 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper/modules';
+import Image from "next/image";
 import 'swiper/css';
 import "swiper/css/pagination";
 
@@ -44,7 +45,7 @@ const Reviews: FC<ReviewsProps> = ({ reviewsData }) => {
               <div className="flex flex-col gap-5 bg-green-900 rounded-md p-6">
                 <p className="font-Lobster">{text}</p>
                 <div className="flex items-center">
-                  <img
+                  <Image
                     className="w-12 h-12 rounded-full"
                     src={imageUrl}
                     alt="review"

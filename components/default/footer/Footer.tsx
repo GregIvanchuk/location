@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { FC } from "react";
 import { NavigationLink } from "@/types/navigationLinks";
 import Navigation from "../common/NavigationLinks";

@@ -7,8 +7,6 @@ interface PricesProps {
 }
 
 const Prices: FC<PricesProps> = ({ pricesData }) => {
-  const [isVisibleTitle, setIsVisibleTitle] = useState(false);
-  const [isVisibleSubtitle, setIsVisibleSubtitle] = useState(false);
   const [isVisiblePrices, setIsVisiblePrices] = useState(false);
 
   return (

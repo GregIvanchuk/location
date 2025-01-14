@@ -49,6 +49,7 @@ export async function POST(req: Request): Promise<Response> {
   } catch (error: unknown) {
     console.error("Error sending email:", error);
 
+ 
     if (error instanceof SyntaxError) {
       return NextResponse.json(
         { message: "Invalid JSON format in the request body" },
@@ -56,26 +57,20 @@ export async function POST(req: Request): Promise<Response> {
       );
     }
 
-    if (
-      error instanceof Error &&
-      "code" in error &&
-      (error as any).code === "ECONNECTION"
-    ) {
-      return NextResponse.json(
-        { message: "Failed to connect to SMTP server", error: error.message },
-        { status: 502 }
-      );
-    }
+    if (error instanceof Error) {
+      if ("code" in error && (error as NodeJS.ErrnoException).code === "ECONNECTION") {
+        return NextResponse.json(
+          { message: "Failed to connect to SMTP server", error: error.message },
+          { status: 502 }
+        );
+      }
 
-    if (
-      error instanceof Error &&
-      "responseCode" in error &&
-      (error as any).responseCode === 550
-    ) {
-      return NextResponse.json(
-        { message: "Mailbox unavailable", error: error.message },
-        { status: 550 }
-      );
+      if ("responseCode" in error && (error as { responseCode?: number }).responseCode === 550) {
+        return NextResponse.json(
+          { message: "Mailbox unavailable", error: error.message },
+          { status: 550 }
+        );
+      }
     }
 
     return NextResponse.json(
